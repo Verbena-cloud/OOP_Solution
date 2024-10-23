@@ -9,10 +9,14 @@ namespace inherientApp
     public class Animal
     {
         public string Name { get; set; }
-        public Animal() { Name = "unknown"; }
+
+        public Animal() { Console.WriteLine($"{Name}default Constructor"); }  
+
+
         public Animal(string name)  //dog ko build yin animal ko build phat ya mr
         {
             Name = name;
+            Console.WriteLine($"{Name}parameter Constructor");
         }
         public void Eat()
         {
@@ -35,6 +39,16 @@ namespace inherientApp
         //{
         //    Breed = breed;
         //}
+
+        public Dog() 
+        {
+            Console.WriteLine($"{Name} default Constructor");
+        }
+        public Dog(string name,string breed): base(name)
+        {
+            Breed = breed;
+            Console.WriteLine($"{Breed} parameter constructor");
+        }
         public override void MakeSound()
         {
             base.MakeSound();
@@ -44,6 +58,10 @@ namespace inherientApp
         public void Fetch()
         {
             Console.WriteLine($"{Name} is fetching the ball");
+        }
+        public override string ToString()
+        {
+            return $"{Name}-{Breed}"; 
         }
     }
 
